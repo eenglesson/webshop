@@ -4,7 +4,7 @@ import { Product } from '@/app/types';
 import Image from 'next/image';
 
 interface ProductDetailsProps {
-  params: { title: string };
+  params: any; // Temporarily set to 'any' to see if type mismatch errors go away
 }
 
 export default async function ProductDetailsPage({

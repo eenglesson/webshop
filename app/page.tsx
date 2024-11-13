@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import FilterProducts from './components/FilterProducts';
@@ -16,7 +16,9 @@ export default function Home() {
   return (
     <>
       <section className='flex flex-col gap-12'>
-        <Navbar setFilter={setFilter} />
+        <Suspense fallback={<p>Loading navbar...</p>}>
+          <Navbar setFilter={setFilter} />
+        </Suspense>
         <FilterProducts onSearch={setSearchQuery} onSortChange={setSortOrder} />
         <ProductList
           filter={filter}

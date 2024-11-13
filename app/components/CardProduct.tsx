@@ -9,18 +9,18 @@ type CardProductProps = {
   product: Product;
 };
 
+const availableColors = [
+  'bg-green-600',
+  'bg-slate-400',
+  'bg-blue-500',
+  'bg-red-600',
+  'bg-slate-800',
+  'bg-purple-500',
+  'bg-orange-500',
+];
+
 export default function CardProduct({ product }: CardProductProps) {
   const router = useRouter(); // Now using from 'next/navigation'
-
-  const availableColors = [
-    'bg-green-600',
-    'bg-slate-400',
-    'bg-blue-500',
-    'bg-red-600',
-    'bg-slate-800',
-    'bg-purple-500',
-    'bg-orange-500',
-  ];
 
   const [colors, setColors] = useState<string[]>([]);
 

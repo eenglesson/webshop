@@ -9,3 +9,14 @@ export type ProductTypes = {
   colors: string[];
   badges: string[];
 };
+
+export type NavLink = {
+  label: string;
+  filter: 'All' | 'Apparel' | 'Accessories';
+};
+
+export const links: NavLink[] = [
+  { label: 'All', filter: 'All' },
+  { label: 'Apparel', filter: 'Apparel' },
+  { label: 'Accessories', filter: 'Accessories' },
+];

@@ -36,7 +36,7 @@ export default function CardProduct({ product }: CardProductProps) {
 
   return (
     <Card
-      className='w-full h-full max-w-[600px] border-none shadow-none mx-auto overflow-hidden transform transition-transform duration-300 hover:scale-102 cursor-pointer flex flex-col'
+      className='w-full h-full max-w-[600px] border-none shadow-none mx-auto overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-102 cursor-pointer flex flex-col'
       onClick={handleClick}
     >
       <div className='relative w-full' style={{ paddingBottom: '128.57%' }}>
@@ -54,7 +54,7 @@ export default function CardProduct({ product }: CardProductProps) {
                 key={`badge-${index}`}
                 className='bg-white py-1 shrink-0 px-2 sm:px-3 rounded-sm'
               >
-                <p className='text-tiny sm:text-small text-black font-medium'>
+                <p className='text-tiny sm:text-small text-black font-normal'>
                   {badge}
                 </p>
               </aside>

@@ -97,9 +97,9 @@ export default function FilterProducts({
         </Card>
       )}
 
-      <div className='flex justify-center items-center h-[30px]'>
+      <div className='flex justify-center w-48  items-center h-[30px]'>
         <Input
-          className='shadow-none h-full'
+          className='shadow-none w-full h-ful placeholder:text-small text-small'
           type='search'
           placeholder='Search for a product...'
           onChange={handleSearchChange}

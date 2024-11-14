@@ -52,9 +52,9 @@ export default function CardProduct({ product }: CardProductProps) {
             {product.badges?.slice(0, 3).map((badge, index) => (
               <aside
                 key={`badge-${index}`}
-                className='bg-white py-1 shrink-0 px-2 sm:px-3 rounded-sm'
+                className='bg-white  shrink-0 py-0.5 px-1.5 sm:py-1 sm:px-2 rounded-sm'
               >
-                <p className='text-tiny sm:text-small text-black font-normal'>
+                <p className='text-[10px] sm:text-tiny lg:text-small text-black font-normal'>
                   {badge}
                 </p>
               </aside>

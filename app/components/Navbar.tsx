@@ -1,9 +1,9 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { ShoppingBag, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { links } from '../types';
+import ShoppingBagUser from './ShoppingBagUser';
 
 const fadeInAnimationVariants = {
   initial: {
@@ -22,8 +22,6 @@ const fadeInAnimationVariants = {
     },
   },
 };
-
-const orderCount = 2;
 
 export default function Navbar({
   setFilter = () => {},
@@ -116,17 +114,7 @@ export default function Navbar({
             }`}
           ></span>
         </aside>
-        <div className='flex z-40 gap-6 '>
-          <User className='cursor-pointer' />
-          <aside className='relative group'>
-            <ShoppingBag className='cursor-pointer' />
-            {orderCount > 0 && (
-              <span className='absolute top-4 -right-2 bg-red-500  text-white text-[12px] font-medium rounded-md w-[18px] h-[18px] flex items-center justify-center cursor-pointer group-hover:bg-black transition-transform duration-150 '>
-                {orderCount}
-              </span>
-            )}
-          </aside>
-        </div>
+        <ShoppingBagUser />
         <ul
           className={`absolute -left-4 w-screen z-20 flex flex-col pb-[50px] pt-[100px] pl-[48px] gap-6 bg-white rounded-b-3xl shadow-xl transition-all duration-300 ease-in-out ${
             isOpen ? 'top-0' : 'top-[-400px]'
@@ -184,17 +172,8 @@ export default function Navbar({
         </div>
 
         {/* Right section with the shopping bag icon */}
-        <div className='flex gap-6 '>
-          <User className='cursor-pointer' />
-          <aside className='relative group'>
-            <ShoppingBag className='cursor-pointer' />
-            {orderCount > 0 && (
-              <span className='absolute top-4 -right-2 bg-red-500  text-white text-[12px] font-medium rounded-md w-[18px] h-[18px] flex items-center justify-center cursor-pointer group-hover:bg-black transition-transform duration-150 '>
-                {orderCount}
-              </span>
-            )}
-          </aside>
-        </div>
+
+        <ShoppingBagUser />
       </nav>
     </>
   );

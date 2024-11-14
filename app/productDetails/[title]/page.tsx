@@ -1,6 +1,6 @@
 import Navbar from '@/app/components/Navbar';
 import { products } from '@/app/data/products';
-import { Product } from '@/app/types';
+import { ProductTypes } from '@/app/types';
 import Image from 'next/image';
 
 interface ProductDetailsProps {
@@ -13,7 +13,7 @@ export default async function ProductDetailsPage({
   const { title } = await params;
 
   // Find the product by title (you could use an ID instead if it's more unique)
-  const product: Product | undefined = products.find(
+  const product: ProductTypes | undefined = products.find(
     (item) => item.title === decodeURIComponent(title)
   );
 

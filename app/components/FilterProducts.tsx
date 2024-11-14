@@ -57,7 +57,7 @@ export default function FilterProducts({
       <div ref={filterRef}>
         <ListFilter
           size={28}
-          className={`cursor-pointer ${
+          className={`cursor-pointer hover:scale-105 transition-transform duration-100 ${
             isDropdownOpen ? 'scale-105' : 'scale-100'
           }`}
           onClick={toggleDropdown}
@@ -97,8 +97,9 @@ export default function FilterProducts({
         </Card>
       )}
 
-      <div>
+      <div className='flex justify-center items-center h-[30px]'>
         <Input
+          className='shadow-none h-full'
           type='search'
           placeholder='Search for a product...'
           onChange={handleSearchChange}

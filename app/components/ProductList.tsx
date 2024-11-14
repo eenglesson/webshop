@@ -2,7 +2,7 @@
 import React from 'react';
 import CardProduct from './CardProduct';
 import { products } from '../data/products';
-import { Product } from '../types';
+import { ProductTypes } from '../types';
 
 type SortOrder = 'asc' | 'desc' | 'popular';
 
@@ -36,7 +36,7 @@ export default function ProductList({
 
   return (
     <section className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 pb-12'>
-      {filteredProducts.map((product: Product) => (
+      {filteredProducts.map((product: ProductTypes) => (
         <CardProduct key={product.id} product={product} />
       ))}
     </section>

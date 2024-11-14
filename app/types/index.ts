@@ -1,4 +1,4 @@
-export type Product = {
+export type ProductTypes = {
   id: number;
   title: string;
   category: string;
@@ -7,4 +7,5 @@ export type Product = {
   image: string;
   isAccessory: boolean;
   colors: string[];
+  badges: string[];
 };

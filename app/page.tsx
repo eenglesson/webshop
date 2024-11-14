@@ -3,6 +3,7 @@ import { Suspense, useState } from 'react';
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import FilterProducts from './components/FilterProducts';
+import BigImage from './components/BigImage';
 
 export default function Home() {
   const [filter, setFilter] = useState<'All' | 'Apparel' | 'Accessories'>(
@@ -15,11 +16,19 @@ export default function Home() {
 
   return (
     <>
-      <section className='flex flex-col gap-12'>
+      <section className='flex flex-col gap-8'>
         <Suspense fallback={<p>Loading navbar...</p>}>
           <Navbar setFilter={setFilter} />
         </Suspense>
-        <FilterProducts onSearch={setSearchQuery} onSortChange={setSortOrder} />
+        <div className='flex flex-col border-b-[0.5px] pb-4 gap-4'>
+          {' '}
+          <BigImage />
+          <FilterProducts
+            onSearch={setSearchQuery}
+            onSortChange={setSortOrder}
+          />
+        </div>
+
         <ProductList
           filter={filter}
           searchQuery={searchQuery}

@@ -25,6 +25,7 @@ export const products = [
     image: '/BetaJacket.jpg',
     isAccessory: false,
     colors: getRandomColors(),
+    badges: ['New', 'GORE-TEX', 'Waterproof'],
   },
   {
     id: 2,
@@ -36,8 +37,8 @@ export const products = [
     image: '/AtomJacket.avif',
     isAccessory: false,
     colors: getRandomColors(),
+    badges: ['Lightweight', 'Breathable'],
   },
-
   {
     id: 3,
     title: 'Sinsolo Hat',
@@ -48,6 +49,7 @@ export const products = [
     image: '/PinkCap.jpg',
     isAccessory: true,
     colors: getRandomColors(),
+    badges: ['Lightweight', 'Breathable'],
   },
   {
     id: 4,
@@ -59,6 +61,7 @@ export const products = [
     image: '/RhoZip.jpg',
     isAccessory: false,
     colors: getRandomColors(),
+    badges: ['Lightweight', 'Moisture-Wicking'],
   },
   {
     id: 5,
@@ -70,6 +73,7 @@ export const products = [
     image: '/GammaJacket.jpg',
     isAccessory: false,
     colors: getRandomColors(),
+    badges: ['High-Output', 'Durable'],
   },
   {
     id: 6,
@@ -81,6 +85,7 @@ export const products = [
     image: '/ShoeRune.jpg',
     isAccessory: true,
     colors: getRandomColors(),
+    badges: ['Trail', 'Durable'],
   },
   {
     id: 7,
@@ -92,6 +97,7 @@ export const products = [
     image: '/AeriosShoe.jpg',
     isAccessory: true,
     colors: getRandomColors(),
+    badges: ['Lightweight', 'GORE-TEX', 'Hiking'],
   },
   {
     id: 8,
@@ -103,6 +109,7 @@ export const products = [
     image: '/GammaPant.jpg',
     isAccessory: false,
     colors: getRandomColors(),
+    badges: ['Lightweight', 'Breathable', 'Durable'],
   },
   {
     id: 9,
@@ -114,6 +121,7 @@ export const products = [
     image: '/SabrePant.jpg',
     isAccessory: false,
     colors: getRandomColors(),
+    badges: ['Quick-Drying', 'Technical', 'Lightweight'],
   },
   {
     id: 10,
@@ -125,6 +133,7 @@ export const products = [
     image: '/ToteBag.jpg',
     isAccessory: true,
     colors: getRandomColors(),
+    badges: ['Weather-Resistant', 'Versatile'],
   },
   {
     id: 11,
@@ -136,6 +145,7 @@ export const products = [
     image: '/Mantis16Bag.jpg',
     isAccessory: true,
     colors: getRandomColors(),
+    badges: ['Durable', 'Organized'],
   },
   {
     id: 12,
@@ -147,6 +157,7 @@ export const products = [
     image: '/SVJacket.jpg',
     isAccessory: false,
     colors: getRandomColors(),
+    badges: ['GORE-TEX', 'Waterproof', 'Durable'],
   },
   {
     id: 13,
@@ -158,6 +169,7 @@ export const products = [
     image: '/BetaARPant.jpg',
     isAccessory: false,
     colors: getRandomColors(),
+    badges: ['Versatile', 'Lightweight', 'Stretch'],
   },
   {
     id: 14,
@@ -169,6 +181,7 @@ export const products = [
     image: '/Cardigan.jpg',
     isAccessory: false,
     colors: getRandomColors(),
+    badges: ['Casual', 'Versatile'],
   },
   {
     id: 15,
@@ -180,6 +193,7 @@ export const products = [
     image: '/CeriumJacket.jpg',
     isAccessory: false,
     colors: getRandomColors(),
+    badges: ['Lightweight', 'Warm', 'Down-Filled'],
   },
   {
     id: 16,
@@ -190,5 +204,6 @@ export const products = [
     image: '/BirdHat.jpg',
     isAccessory: true,
     colors: getRandomColors(),
+    badges: ['Warm', 'Comfortable'],
   },
 ];

@@ -110,7 +110,7 @@ export default async function ProductDetailsPage({
             </span>
           </aside>
           {/* about text */}
-          <div className='mt-2 space-y-2'>
+          <div className=''>
             {/* Render dynamically split text */}
             {splitTextAfterStops(product.about, 2).map((line, index) => (
               <p

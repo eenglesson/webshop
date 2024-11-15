@@ -16,7 +16,7 @@ const fadeInAnimationVariants = {
     transition: {
       duration: 0.1,
       type: 'spring',
-      stiffness: 800, // Controls the stiffness of the spring
+      stiffness: 800,
       damping: 80,
       delay: 0,
     },
@@ -29,8 +29,8 @@ export default function Navbar({
   setFilter?: (filter: 'All' | 'Apparel' | 'Accessories') => void;
 }) {
   const router = useRouter();
-  const pathname = usePathname(); // Get the current path
-  const searchParams = useSearchParams(); // Get search parameters from URL
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [activeLink, setActiveLink] = useState<
     'All' | 'Apparel' | 'Accessories'
   >('All');
@@ -40,12 +40,11 @@ export default function Navbar({
 
   const toggleHamburger = () => {
     setIsOpen(!isOpen);
-    setHasClicked(true); // När användaren klickar aktiveras animationerna
+    setHasClicked(true);
   };
 
   const handleScroll = () => {
     if (window.scrollY > 30) {
-      // Replace 100 with any threshold you prefer
       setIsOpen(false);
     }
   };
@@ -62,35 +61,35 @@ export default function Navbar({
       | 'Apparel'
       | 'Accessories';
     if (pathname === '/') {
-      setActiveLink(filterParam || 'All'); // Set based on URL or default to 'All'
-      setFilter(filterParam || 'All'); // Set filter in the home page
+      setActiveLink(filterParam || 'All');
+      setFilter(filterParam || 'All');
     }
   }, [pathname, searchParams, setFilter]);
 
   const handleLinkClick = (filter?: 'All' | 'Apparel' | 'Accessories') => {
     if (pathname === '/') {
-      // If on the homepage, only set the filter if provided
       if (filter) {
-        setFilter(filter);
+        router.push(`/?filter=${filter}`); // Navigate to homepage with filter query
         setActiveLink(filter);
-        setIsOpen(!isOpen);
-        setHasClicked(true);
+      } else {
+        router.push('/'); // Navigate to homepage without filter
       }
+      setIsOpen(false);
+      setHasClicked(true);
     } else {
-      // Navigate to the homepage from any other page
-      router.push('/');
-      setTimeout(() => {
-        if (filter) {
-          setFilter(filter);
-        }
-      }, 0);
+      // If coming from a different page, navigate to homepage with filter query
+      if (filter) {
+        router.push(`/?filter=${filter}`);
+      } else {
+        router.push('/');
+      }
     }
   };
 
   return (
     <>
-      {/* navbar för smaller screens */}
-      <nav className='flex relative sm:hidden items-center justify-between border-b-[0.5px] py-4'>
+      {/* Navbar for smaller screens */}
+      <nav className='flex relative sm:hidden items-center justify-between border-b py-4'>
         <aside
           onClick={toggleHamburger}
           className='flex flex-col gap-1.5 w-[26px] justify-center h-[26px] cursor-pointer z-30'
@@ -144,8 +143,8 @@ export default function Navbar({
         </ul>
       </nav>
 
-      {/* navbar fo bigger screens */}
-      <nav className='hidden sm:flex relative items-center justify-between border-b-[0.5px] py-4'>
+      {/* Navbar for larger screens */}
+      <nav className='hidden sm:flex relative items-center justify-between border-b py-4'>
         {/* Left section with the logo */}
         <div
           className='flex-shrink-0 cursor-pointer'
@@ -172,7 +171,6 @@ export default function Navbar({
         </div>
 
         {/* Right section with the shopping bag icon */}
-
         <ShoppingBagUser />
       </nav>
     </>

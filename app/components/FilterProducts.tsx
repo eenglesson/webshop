@@ -8,12 +8,14 @@ type FilterProductsProps = {
   onSearch: (query: string) => void;
   onSortChange: (sortOrder: 'asc' | 'desc' | 'popular') => void;
   productCount: number;
+  filter: 'All' | 'Apparel' | 'Accessories';
 };
 
 export default function FilterProducts({
   onSearch,
   onSortChange,
   productCount,
+  filter,
 }: FilterProductsProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedSortOrder, setSelectedSortOrder] = useState<
@@ -104,7 +106,7 @@ export default function FilterProducts({
           <p className='text-[18px] sm:text-[24px] leading-[0.9]'>
             {productCount}
           </p>
-          <p className='leading-none text-[12px] sm:text-[14px]'>Products</p>
+          <p className='leading-none text-[12px] sm:text-[14px]'>{filter}</p>
         </aside>
       </div>
       <div className='flex justify-center w-48 items-center h-[30px]'>

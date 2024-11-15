@@ -1,7 +1,32 @@
+import Accordion from '@/app/components/Accordion';
+import ColorPicker from '@/app/components/ColorPicker';
+import InteractiveIcon from '@/app/components/InteractiveIcon';
 import Navbar from '@/app/components/Navbar';
 import { products } from '@/app/data/products';
 import { ProductTypes } from '@/app/types';
+import { Button } from '@/components/ui/button';
+import { HeartIcon } from 'lucide-react';
 import Image from 'next/image';
+
+const menuConfig = [
+  { id: 1, name: 'Features', key: 'features' }, // Maps to `product.features`
+  { id: 2, name: 'Care Instructions', key: 'care' }, // Maps to `product.care`
+  { id: 3, name: 'Shipping', key: 'shippingReturns' }, // Maps to `product.shippingReturns`
+  { id: 4, name: 'Returns', key: 'returns' }, // Maps to `product.returns`
+];
+
+const extraConfig = {
+  shippingReturns: [
+    'Standard shipping is free for all orders over $50.',
+    'Orders are typically processed within 1-2 business days and delivered within 3-5 business days.',
+    'Expedited shipping options are available at checkout for an additional fee.',
+    'Learn more about our shipping options and policies.',
+  ],
+  returns: [
+    "We offer a 30-day return policy. If you're not completely satisfied with your purchase, return it within 30 days for a full refund",
+    'To initiate a return, contact our customer service team or visit our returns page.',
+  ],
+};
 
 type ProductDetailsProps = {
   params: any; // Temporarily set to 'any' to see if type mismatch errors go away
@@ -58,7 +83,7 @@ export default async function ProductDetailsPage({
   return (
     <>
       <Navbar />
-      <section className='md:flex md:flex-row flex-col pt-8'>
+      <section className='md:flex md:flex-row h-full w-full flex-col pt-8 pb-32'>
         <div className='flex items-center justify-center md:w-1/2 h-full w-full '>
           <div
             className='relative w-full max-w-[700px]'
@@ -73,8 +98,9 @@ export default async function ProductDetailsPage({
           </div>
         </div>
 
-        <div className='md:w-1/2 h-full w-full flex flex-col gap-2 md:gap-4 md:pl-4'>
+        <div className='md:w-1/2 h-full w-full flex mt-4 md:mt-0 flex-col gap-6 lg:gap-10 md:pl-4'>
           {/* title and price */}
+
           <aside className='flex flex-col'>
             <h1 className='text-h4 md:text-h2 lg:text-h1 font-medium '>
               {product.title}
@@ -89,24 +115,36 @@ export default async function ProductDetailsPage({
             {splitTextAfterStops(product.about, 2).map((line, index) => (
               <p
                 key={index}
-                className='text-gray-700 text-tiny sm:text-small md:text-body font-normal leading-relaxed'
+                className='text-gray-700 text-tiny sm:text-small lg:text-body font-normal leading-relaxed'
               >
                 {line}
               </p>
             ))}
           </div>
+
           {/* color picker */}
-          <aside>
-            <p>Color</p>
-            <div className='flex gap-2'>
-              {product.colors.map((color, index) => (
-                <span
-                  key={index}
-                  className={`h-6 w-6 sm:h-8 sm:w-8 rounded-full ${color}`}
-                />
-              ))}
+          <aside className='flex flex-col gap-1'>
+            <p className='text-small text-black'>Colors</p>
+            <div className='pl-[2px]'>
+              <ColorPicker
+                colors={product.colors}
+                initialColor={product.colors[0]}
+              />
             </div>
           </aside>
+          <aside className='flex w-full items-center gap-6 md:gap-8'>
+            <Button className='w-64 h-10 md:w-80 lg:h-12'>Add to bag</Button>
+            <InteractiveIcon
+              initialColor='text-darkGray'
+              activeColor='text-red-500 fill-red-500'
+              hoverColor='hover:text-red-500 transition-colors duration-50'
+              size='w-7 h-7 lg:w-8 lg:h-8'
+              strokeWidth={1.5}
+            >
+              <HeartIcon />
+            </InteractiveIcon>
+          </aside>
+          <Accordion data={product} menu={menuConfig} extra={extraConfig} />
         </div>
       </section>
     </>

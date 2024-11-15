@@ -52,7 +52,7 @@ export default function Accordion({ data, menu, extra }: AccordionProps) {
                           data[item.key].map((entry: string, index: number) => (
                             <p
                               key={index}
-                              className='text-tiny sm:text-small text-mutedText'
+                              className='text-small text-mutedText'
                             >
                               {entry}
                             </p>
@@ -68,7 +68,7 @@ export default function Accordion({ data, menu, extra }: AccordionProps) {
                         extra[item.key].map((entry, index) => (
                           <p
                             key={`extra-${index}`}
-                            className='text-tiny sm:text-small text-mutedText'
+                            className='text-small text-mutedText'
                           >
                             {entry}
                           </p>

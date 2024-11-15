@@ -1,6 +1,5 @@
 'use client';
 import { Suspense, useState, useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import FilterProducts from './components/FilterProducts';
@@ -16,18 +15,15 @@ export default function Home() {
   );
   const [productCount, setProductCount] = useState<number>(0);
 
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
+  // Use `window.location.search` to get the query parameters
   useEffect(() => {
-    if (pathname === '/') {
-      const filterParam = searchParams.get('filter') as
-        | 'All'
-        | 'Apparel'
-        | 'Accessories';
-      setFilter(filterParam || 'All');
-    }
-  }, [pathname, searchParams]);
+    const params = new URLSearchParams(window.location.search);
+    const filterParam = params.get('filter') as
+      | 'All'
+      | 'Apparel'
+      | 'Accessories';
+    setFilter(filterParam || 'All');
+  }, []); // Only run on mount
 
   return (
     <>

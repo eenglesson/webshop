@@ -13,6 +13,7 @@ export default function Home() {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | 'popular'>(
     'popular'
   );
+  const [productCount, setProductCount] = useState<number>(0);
 
   return (
     <>
@@ -26,6 +27,7 @@ export default function Home() {
           <FilterProducts
             onSearch={setSearchQuery}
             onSortChange={setSortOrder}
+            productCount={productCount}
           />
         </div>
 
@@ -33,6 +35,7 @@ export default function Home() {
           filter={filter}
           searchQuery={searchQuery}
           sortOrder={sortOrder}
+          onCountChange={setProductCount}
         />
       </section>
     </>

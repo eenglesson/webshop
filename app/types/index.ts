@@ -8,6 +8,8 @@ export type ProductTypes = {
   isAccessory: boolean;
   colors: string[];
   badges: string[];
+  features: string[];
+  care: string;
 };
 
 export type NavLink = {

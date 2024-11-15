@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+
 import { useRouter } from 'next/navigation'; // Updated import
 import Image from 'next/image';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -9,26 +9,8 @@ type CardProductProps = {
   product: ProductTypes;
 };
 
-const availableColors = [
-  'bg-green-600',
-  'bg-slate-400',
-  'bg-blue-500',
-  'bg-red-600',
-  'bg-slate-800',
-  'bg-purple-500',
-  'bg-orange-500',
-];
-
 export default function CardProduct({ product }: CardProductProps) {
   const router = useRouter(); // Now using from 'next/navigation'
-
-  const [colors, setColors] = useState<string[]>([]);
-
-  useEffect(() => {
-    const colorCount = Math.floor(Math.random() * 3) + 3;
-    const shuffledColors = [...availableColors].sort(() => 0.5 - Math.random());
-    setColors(shuffledColors.slice(0, colorCount));
-  }, []);
 
   const handleClick = () => {
     router.push(`/productDetails/${product.title}`);
@@ -62,7 +44,7 @@ export default function CardProduct({ product }: CardProductProps) {
           </div>
         </div>
       </div>
-      <div className='border-l border-r border-b rounded-bl-xl rounded-br-xl'>
+      <div className='border-l border-r border-b rounded-bl-xl rounded-br-xl flex-grow flex flex-col'>
         <CardContent className='p-4 pb-2 sm:pb-4 flex-grow flex flex-col gap-1'>
           <div>
             <h3 className='text-small md:text-h6 font-semibold'>
@@ -73,7 +55,7 @@ export default function CardProduct({ product }: CardProductProps) {
             </p>
           </div>
           <div className='flex gap-1'>
-            {colors.map((color, index) => (
+            {product.colors.map((color, index) => (
               <span
                 key={index}
                 className={`h-[10px] w-[10px] sm:h-[14px] sm:w-[14px] rounded-full ${color}`}

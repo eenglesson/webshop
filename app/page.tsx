@@ -45,12 +45,14 @@ export default function Home() {
           />
         </div>
 
-        <ProductList
-          filter={filter}
-          searchQuery={searchQuery}
-          sortOrder={sortOrder}
-          onCountChange={setProductCount}
-        />
+        <Suspense fallback={<p>Loading products...</p>}>
+          <ProductList
+            filter={filter}
+            searchQuery={searchQuery}
+            sortOrder={sortOrder}
+            onCountChange={setProductCount}
+          />
+        </Suspense>
       </section>
     </>
   );

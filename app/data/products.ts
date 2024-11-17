@@ -8,7 +8,7 @@ export const products = [
       'The Beta AR Jacket is designed for versatility, durability, and peak performance in extreme mountain conditions. Featuring GORE-TEX Pro fabric, it ensures unmatched waterproof and windproof protection while remaining highly breathable. Engineered with an ergonomic fit for unrestricted movement, this jacket is ideal for hiking, climbing, or skiing. Its lightweight construction and durable build make it a reliable companion for all-around mountain use.',
     image: '/BetaJacket.jpg',
     isAccessory: false,
-    colors: ['bg-blue-500', 'bg-slate-400', 'bg-slate-800', 'bg-red-600'], // Grey, black, blue
+    colors: ['bg-blue-500', 'bg-slate-400', 'bg-slate-800', 'bg-red-600'],
     badges: ['New', 'GORE-TEX', 'Waterproof'],
     features: [
       'GORE-TEX Pro fabric',
@@ -17,6 +17,7 @@ export const products = [
       'Ideal for mountain activities',
     ],
     care: 'Machine wash warm, rinse twice. Tumble dry medium. Do not iron.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
     id: 2,
@@ -27,7 +28,7 @@ export const products = [
       'The Atom LT Hoody is a lightweight and breathable insulated layer designed for high-performance activities in cold conditions. It features Coreloft Compact insulation that provides warmth without bulk and resists moisture for reliability during dynamic activities. The stretch side panels enhance breathability and range of motion, while the compact design makes it easy to pack for travel or outdoor adventures.',
     image: '/AtomJacket.avif',
     isAccessory: false,
-    colors: ['bg-orange-500', 'bg-slate-400', 'bg-slate-800', 'bg-purple-500'], // Grey, black, purple
+    colors: ['bg-orange-500', 'bg-slate-400', 'bg-slate-800', 'bg-purple-500'],
     badges: ['Lightweight', 'Breathable'],
     features: [
       'Coreloft™ insulation for warmth',
@@ -35,6 +36,7 @@ export const products = [
       'Articulated design for mobility',
     ],
     care: 'Machine wash cold, gentle cycle. Hang to dry. Do not iron.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
     id: 3,
@@ -45,7 +47,7 @@ export const products = [
       'The Sinsolo Hat is the ultimate companion for sunny adventures, offering exceptional comfort and protection in hot climates. Its lightweight construction ensures all-day comfort, while the breathable fabric keeps your head cool and dry. The compressible design allows it to fit easily into your backpack, making it ideal for hiking, travel, or casual outings under the sun.',
     image: '/PinkCap.jpg',
     isAccessory: true,
-    colors: ['bg-pink-300', 'bg-green-600', 'bg-slate-800'], // Grey, orange, black
+    colors: ['bg-pink-300', 'bg-green-600', 'bg-slate-800'],
     badges: ['Lightweight', 'Breathable'],
     features: [
       'Lightweight, breathable construction',
@@ -53,6 +55,7 @@ export const products = [
       'Compressible design for travel',
     ],
     care: 'Hand wash and air dry. Avoid using bleach.',
+    sizes: ['One Size'],
   },
   {
     id: 4,
@@ -63,7 +66,7 @@ export const products = [
       'The Rho LT Zip Neck is a high-performance base layer designed for optimal temperature regulation during cold-weather activities. Its lightweight fabric wicks moisture away from the skin, ensuring you stay dry and comfortable. The zip neck allows for easy venting, while the soft, stretchy material provides unrestricted movement. Perfect for skiing, hiking, or casual wear.',
     image: '/RhoZip.jpg',
     isAccessory: false,
-    colors: ['bg-slate-800', 'bg-slate-400', 'bg-red-600'], // Grey, red, black
+    colors: ['bg-slate-800', 'bg-slate-400', 'bg-red-600'],
     badges: ['Lightweight', 'Moisture-Wicking'],
     features: [
       'Lightweight and stretchy fabric',
@@ -72,6 +75,7 @@ export const products = [
       'Soft and comfortable material',
     ],
     care: 'Machine wash cold. Tumble dry low. Do not iron or use fabric softeners.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
     id: 5,
@@ -82,7 +86,7 @@ export const products = [
       'The Gamma MX Jacket is crafted for high-output activities in dynamic environments, offering unparalleled durability and flexibility. Its softshell design is wind and water-resistant, making it ideal for outdoor pursuits like climbing and skiing. With exceptional breathability and freedom of movement, it ensures you stay comfortable and protected in challenging conditions.',
     image: '/GammaJacket.jpg',
     isAccessory: false,
-    colors: ['bg-slate-300', 'bg-slate-800', 'bg-blue-500'], // Grey, black, blue
+    colors: ['bg-slate-300', 'bg-slate-800', 'bg-blue-500'],
     badges: ['High-Output', 'Durable'],
     features: [
       'Softshell wind-resistant material',
@@ -91,6 +95,7 @@ export const products = [
       'Highly breathable design',
     ],
     care: 'Machine wash warm. Hang to dry. Do not dry clean or bleach.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
     id: 6,
@@ -101,7 +106,7 @@ export const products = [
       'The Norvan LD 3 Shoe is built for trail running enthusiasts who demand performance and durability on long-distance routes. Featuring a comfortable fit and advanced cushioning, these shoes provide stability on uneven terrain. The rugged outsole ensures excellent grip on both wet and dry surfaces, while the lightweight construction reduces fatigue over extended runs.',
     image: '/ShoeRune.jpg',
     isAccessory: true,
-    colors: ['bg-yellow-600', 'bg-slate-400', 'bg-slate-800', 'bg-green-600'], // Yellow, black, green
+    colors: ['bg-yellow-600', 'bg-slate-400', 'bg-slate-800', 'bg-green-600'],
     badges: ['Trail', 'Durable'],
     features: [
       'Durable and lightweight',
@@ -110,6 +115,7 @@ export const products = [
       'Ideal for long-distance trail running',
     ],
     care: 'Wipe clean with a damp cloth. Air dry away from direct sunlight.',
+    sizes: ['39', '40', '41', '42', '43', '44', '45'],
   },
   {
     id: 7,
@@ -120,7 +126,7 @@ export const products = [
       'The Aerios FL Mid GTX combines the agility of a trail runner with the protection of a hiking boot. Featuring GORE-TEX for waterproof performance, it keeps your feet dry in wet conditions. The lightweight design is perfect for fast-paced adventures, while the mid-cut provides ankle support for rough terrain.',
     image: '/AeriosShoe.jpg',
     isAccessory: true,
-    colors: ['bg-slate-800', 'bg-slate-400', 'bg-blue-300'], // Grey, blue, black
+    colors: ['bg-slate-800', 'bg-slate-400', 'bg-blue-300'],
     badges: ['Lightweight', 'GORE-TEX', 'Hiking'],
     features: [
       'GORE-TEX waterproof membrane',
@@ -129,6 +135,7 @@ export const products = [
       'Durable outsole for varied terrain',
     ],
     care: 'Clean with mild soap and water. Air dry thoroughly. Avoid submerging in water.',
+    sizes: ['39', '40', '41', '42', '43', '44', '45'],
   },
   {
     id: 8,
@@ -139,7 +146,7 @@ export const products = [
       'The Gamma LT Pant is designed for outdoor versatility, offering lightweight durability and freedom of movement. Its softshell fabric is wind-resistant and breathable, making it ideal for hiking, climbing, and other activities. The articulated design ensures unrestricted mobility, while its quick-drying material enhances comfort during extended use.',
     image: '/GammaPant.jpg',
     isAccessory: false,
-    colors: ['bg-stone-400', 'bg-orange-500', 'bg-slate-800'], // Grey, orange, black
+    colors: ['bg-stone-400', 'bg-orange-500', 'bg-slate-800'],
     badges: ['Lightweight', 'Breathable', 'Durable'],
     features: [
       'Breathable softshell fabric',
@@ -148,6 +155,7 @@ export const products = [
       'Durable construction for outdoor use',
     ],
     care: 'Machine wash cold. Tumble dry low. Do not bleach or iron.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
     id: 9,
@@ -158,7 +166,7 @@ export const products = [
       'The Palisade Pant is crafted for trekking and hiking, offering exceptional comfort and functionality. Made from lightweight, quick-drying fabric, it keeps you cool and dry during strenuous activities. The technical design includes multiple pockets for storage, while the stretch material ensures unrestricted movement on the trail.',
     image: '/SabrePant.jpg',
     isAccessory: false,
-    colors: ['bg-emerald-800', 'bg-slate-800', 'bg-red-600'], // Grey, black, green
+    colors: ['bg-emerald-800', 'bg-slate-800', 'bg-red-600'],
     badges: ['Quick-Drying', 'Technical', 'Lightweight'],
     features: [
       'Lightweight and quick-drying fabric',
@@ -167,6 +175,7 @@ export const products = [
       'Designed for trekking and hiking',
     ],
     care: 'Machine wash warm. Hang to dry. Do not use fabric softeners.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
     id: 10,
@@ -177,7 +186,7 @@ export const products = [
       'The Carrier 45 Gear Tote is a versatile and weather-resistant bag, perfect for urban commuting or weekend getaways. With a spacious design and durable materials, it offers ample storage for your gear. The adjustable straps and padded handles ensure comfortable carrying, making it a reliable choice for daily use or travel.',
     image: '/ToteBag.jpg',
     isAccessory: true,
-    colors: ['bg-slate-900', 'bg-slate-300', 'bg-pink-400'], // Grey, black, blue
+    colors: ['bg-slate-900', 'bg-slate-300', 'bg-pink-400'],
     badges: ['Weather-Resistant', 'Versatile'],
     features: [
       'Weather-resistant construction',
@@ -186,6 +195,7 @@ export const products = [
       'Durable material for longevity',
     ],
     care: 'Spot clean with a damp cloth. Avoid exposure to extreme heat.',
+    sizes: ['One Size'],
   },
   {
     id: 11,
@@ -196,7 +206,7 @@ export const products = [
       'The Mantis 26 Backpack is a durable and functional daypack designed for intuitive organization and versatility. With multiple compartments and padded straps, it is ideal for daily use, travel, or hiking. The weather-resistant materials ensure your belongings stay safe, while the ergonomic design provides lasting comfort on the go.',
     image: '/Mantis16Bag.jpg',
     isAccessory: true,
-    colors: ['bg-yellow-700', 'bg-purple-500', 'bg-slate-800'], // Grey, purple, black
+    colors: ['bg-yellow-700', 'bg-purple-500', 'bg-slate-800'],
     badges: ['Durable', 'Organized'],
     features: [
       'Durable weather-resistant materials',
@@ -205,6 +215,7 @@ export const products = [
       'Ergonomic design for all-day use',
     ],
     care: 'Spot clean with mild soap and water. Air dry thoroughly.',
+    sizes: ['One Size'],
   },
   {
     id: 12,
@@ -215,7 +226,7 @@ export const products = [
       'The Alpha SV Jacket is built for severe conditions, offering exceptional durability and performance. Crafted with GORE-TEX Pro fabric, it is waterproof, windproof, and breathable, ensuring maximum protection in extreme weather. Its articulated design provides freedom of movement, making it ideal for climbing and mountaineering in harsh environments.',
     image: '/SVJacket.jpg',
     isAccessory: false,
-    colors: ['bg-blue-600', 'bg-slate-800', 'bg-red-600'], // Grey, black, red
+    colors: ['bg-blue-600', 'bg-slate-800', 'bg-red-600'],
     badges: ['GORE-TEX', 'Waterproof', 'Durable'],
     features: [
       'GORE-TEX Pro fabric for severe weather',
@@ -224,6 +235,7 @@ export const products = [
       'Ideal for climbing and mountaineering',
     ],
     care: 'Machine wash warm. Tumble dry low. Do not iron or bleach.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
     id: 13,
@@ -234,7 +246,7 @@ export const products = [
       'The Beta AR Pant combines lightweight design with excellent weather resistance, making it a versatile choice for hiking and outdoor adventures. Its stretchable fabric offers comfort and mobility, while the durable construction ensures long-lasting performance in varied conditions.',
     image: '/BetaARPant.jpg',
     isAccessory: false,
-    colors: ['bg-emerald-800', 'bg-slate-800', 'bg-orange-500'], // Grey, black, orange
+    colors: ['bg-emerald-800', 'bg-slate-800', 'bg-orange-500'],
     badges: ['Versatile', 'Lightweight', 'Stretch'],
     features: [
       'Stretchable fabric for comfort',
@@ -243,6 +255,7 @@ export const products = [
       'Ideal for hiking and adventures',
     ],
     care: 'Machine wash cold. Hang to dry. Avoid using bleach or fabric softeners.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
     id: 14,
@@ -253,7 +266,7 @@ export const products = [
       'The Covert Cardigan offers a refined design and versatile performance for casual or active use. Made from heathered fleece, it provides warmth and comfort with a polished look. The lightweight and breathable material make it suitable for layering or standalone wear in cooler weather.',
     image: '/Cardigan.jpg',
     isAccessory: false,
-    colors: ['bg-stone-300', 'bg-slate-800', 'bg-purple-500'], // Grey, black, purple
+    colors: ['bg-stone-300', 'bg-slate-800', 'bg-purple-500'],
     badges: ['Casual', 'Versatile'],
     features: [
       'Heathered fleece for warmth',
@@ -262,6 +275,7 @@ export const products = [
       'Versatile for layering or solo wear',
     ],
     care: 'Machine wash warm. Hang to dry. Do not bleach or iron.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
     id: 15,
@@ -272,7 +286,7 @@ export const products = [
       'The Cerium LT Jacket is a streamlined and lightweight down-filled jacket designed for exceptional warmth in cold climates. Featuring 850-fill goose down, it provides unmatched insulation while remaining highly compressible for easy packing. The outer material is durable and water-resistant, making it suitable for a variety of activities.',
     image: '/CeriumJacket.jpg',
     isAccessory: false,
-    colors: ['bg-stone-400', 'bg-slate-800', 'bg-blue-500'], // Grey, black, blue
+    colors: ['bg-stone-400', 'bg-slate-800', 'bg-blue-500'],
     badges: ['Lightweight', 'Warm', 'Down-Filled'],
     features: [
       '850-fill goose down insulation',
@@ -281,6 +295,7 @@ export const products = [
       'Highly compressible for packing',
     ],
     care: 'Machine wash cold with down detergent. Tumble dry on low with tennis balls.',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
     id: 16,
@@ -291,7 +306,7 @@ export const products = [
       "The Bird Head Toque is a warm and stylish beanie, perfect for cold-weather wear. Featuring the iconic Arc'teryx bird logo, it is crafted with a comfortable and snug fit. Its knitted construction offers exceptional warmth and durability, making it an essential accessory for winter adventures or casual outings.",
     image: '/BirdHat.jpg',
     isAccessory: true,
-    colors: ['bg-emerald-700', 'bg-slate-800', 'bg-red-600'], // Grey, black, red
+    colors: ['bg-emerald-700', 'bg-slate-800', 'bg-red-600'],
     badges: ['Warm', 'Comfortable'],
     features: [
       'Knitted construction for warmth',
@@ -300,5 +315,26 @@ export const products = [
       'Durable and long-lasting',
     ],
     care: 'Hand wash cold. Lay flat to dry. Avoid wringing or twisting.',
+    sizes: ['One Size'],
   },
 ];
+
+export const menuConfig = [
+  { id: 1, name: 'Features', key: 'features' }, // Maps to `product.features`
+  { id: 2, name: 'Care Instructions', key: 'care' }, // Maps to `product.care`
+  { id: 3, name: 'Shipping', key: 'shippingReturns' }, // Maps to `product.shippingReturns`
+  { id: 4, name: 'Returns', key: 'returns' }, // Maps to `product.returns`
+];
+
+export const extraConfig = {
+  shippingReturns: [
+    'Standard shipping is free for all orders over $50.',
+    'Orders are typically processed within 1-2 business days and delivered within 3-5 business days.',
+    'Expedited shipping options are available at checkout for an additional fee.',
+    'Learn more about our shipping options and policies.',
+  ],
+  returns: [
+    "We offer a 30-day return policy. If you're not completely satisfied with your purchase, return it within 30 days for a full refund",
+    'To initiate a return, contact our customer service team or visit our returns page.',
+  ],
+};

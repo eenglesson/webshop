@@ -1,4 +1,5 @@
 import './globals.css';
+import { Providers } from './providers';
 
 export default function RootLayout({
   children,
@@ -8,7 +9,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='max-w-[1400px] mx-auto px-4 sm:px-8'>{children}</div>
+        <div className='max-w-[1400px] mx-auto px-4 sm:px-8'>
+          {' '}
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   );

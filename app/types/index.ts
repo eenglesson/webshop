@@ -10,6 +10,7 @@ export type ProductTypes = {
   badges: string[];
   features: string[];
   care: string;
+  sizes: string[];
 };
 
 export type NavLink = {

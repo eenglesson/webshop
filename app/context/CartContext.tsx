@@ -117,14 +117,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     );
   };
 
-  const removeByIndex = (index: number) => {
-    setCartItems((prevItems) => {
-      const updatedItems = [...prevItems];
-      updatedItems.splice(index, 1); // Remove the item at the specific index
-      return updatedItems;
-    });
-  };
-
   return (
     <CartContext.Provider
       value={{ cartItems, addToCart, removeFromCart, updateQuantity }}

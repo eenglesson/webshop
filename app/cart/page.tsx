@@ -5,7 +5,9 @@ import { CartPageClient } from './CartPageClient';
 export default function CartPage() {
   return (
     <>
-      <Navbar />
+      <Suspense fallback={<p>Loading navbar...</p>}>
+        <Navbar />
+      </Suspense>
       <h1 className='text-h4 sm:text-h3 mt-8 font-semibold mb-4'>
         Shopping Cart
       </h1>

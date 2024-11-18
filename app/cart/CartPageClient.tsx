@@ -1,4 +1,5 @@
 'use client';
+
 import { useCart } from '../context/CartContext';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
@@ -18,6 +19,11 @@ import { useRouter } from 'next/navigation';
 export function CartPageClient() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
   const router = useRouter();
+
+  const totalPrice = cartItems.reduce(
+    (sum, item) => sum + item.quantity * item.price,
+    0
+  );
 
   return (
     <div className='flex flex-col md:flex-row gap-8'>
@@ -132,6 +138,8 @@ export function CartPageClient() {
           <p className='text-gray-500'>Your cart is currently empty.</p>
         )}
       </aside>
+
+      {/* Order Summary */}
       {cartItems.length > 0 && (
         <aside className='w-full md:w-1/2 m-auto'>
           <Card className='p-6 shadow-none'>
@@ -139,14 +147,7 @@ export function CartPageClient() {
             <div className='flex flex-col gap-4'>
               <div className='flex justify-between'>
                 <p className='text-small'>Subtotal</p>
-                <p className='text-small'>
-                  $
-                  {cartItems.reduce(
-                    (sum, item) => sum + item.quantity * item.price,
-                    0
-                  )}
-                  .00
-                </p>
+                <p className='text-small'>${totalPrice}.00</p>
               </div>
               <div className='flex justify-between'>
                 <p className='text-small'>Shipping</p>
@@ -158,14 +159,7 @@ export function CartPageClient() {
               </div>
               <div className='flex justify-between'>
                 <p className='text-small font-medium'>Total</p>
-                <p className='text-small font-medium'>
-                  $
-                  {cartItems.reduce(
-                    (sum, item) => sum + item.quantity * item.price,
-                    0
-                  )}
-                  .00
-                </p>
+                <p className='text-small font-medium'>${totalPrice}.00</p>
               </div>
               <Button className='w-full h-10'>Proceed to Checkout</Button>
             </div>

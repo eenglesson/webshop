@@ -1,7 +1,4 @@
 'use client';
-
-import React, { Suspense } from 'react';
-import Navbar from '../components/Navbar';
 import { useCart } from '../context/CartContext';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';

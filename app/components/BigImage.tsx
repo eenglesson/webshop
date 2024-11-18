@@ -10,6 +10,7 @@ export default function BigImage() {
           alt='skiImage'
           fill
           style={{ objectFit: 'cover' }}
+          priority
         />
         <div className='absolute inset-0 flex items-center justify-start bg-black bg-opacity-25 text-white text-lg font-semibold p-4 sm:p-8'>
           <div className=''>

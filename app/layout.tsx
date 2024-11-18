@@ -1,8 +1,9 @@
 'use client';
 
 import './globals.css';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Providers } from './providers';
+import { Toaster } from 'sonner';
 
 export default function RootLayout({
   children,
@@ -13,10 +14,8 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <div className='max-w-[1400px] mx-auto px-4 sm:px-8'>
-          <Providers>
-            {/* Wrap children with Suspense */}
-            <Suspense fallback={<p>Loading...</p>}>{children}</Suspense>
-          </Providers>
+          <Providers>{children}</Providers>
+          <Toaster position='bottom-right' richColors />
         </div>
       </body>
     </html>

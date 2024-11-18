@@ -1,17 +1,19 @@
 // components/AddToCartButton.tsx
 
 'use client';
-
+import { useRouter } from 'next/navigation'; // Updated import
 import { Button } from '@/components/ui/button';
 import { ProductTypes } from '@/app/types';
 import React from 'react';
-import { useCart } from '../context/CartContext';
 
-interface AddToCartButtonProps {
+import { useCart } from '../context/CartContext';
+import { toast } from 'sonner';
+
+type AddToCartButtonProps = {
   product: ProductTypes;
   selectedColor: string;
   selectedSize: string;
-}
+};
 
 export default function AddToCartButton({
   product,
@@ -19,10 +21,11 @@ export default function AddToCartButton({
   selectedSize,
 }: AddToCartButtonProps) {
   const { addToCart } = useCart();
+  const router = useRouter(); // Now using from 'next/navigation'
 
   const handleAddToBag = () => {
     if (!selectedColor || !selectedSize) {
-      console.log('Please select color and size');
+      toast.error('Please select a color and size.');
       return;
     }
 
@@ -37,7 +40,17 @@ export default function AddToCartButton({
     };
 
     addToCart(cartItem);
-    console.log('Added to bag:', cartItem);
+
+    // Trigger notification
+    toast('Product has been added', {
+      description: `${product.title} (${cartItem.selectedSize})`,
+      action: {
+        label: 'View Cart',
+        onClick: () => {
+          router.push('/cart');
+        },
+      },
+    });
   };
 
   return (

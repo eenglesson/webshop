@@ -1,5 +1,3 @@
-// context/CartContext.tsx
-
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
@@ -37,19 +35,20 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  // Optional: Persist cart state with localStorage
+  // Load cart state from sessionStorage
   useEffect(() => {
-    const storedCart = localStorage.getItem('cartItems');
+    const storedCart = sessionStorage.getItem('cartItems');
     if (storedCart) {
       setCartItems(JSON.parse(storedCart));
     }
   }, []);
 
+  // Save cart state to sessionStorage
   useEffect(() => {
     if (cartItems.length > 0) {
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
     } else {
-      localStorage.removeItem('cartItems');
+      sessionStorage.removeItem('cartItems');
     }
   }, [cartItems]);
 
@@ -116,6 +115,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
           : item
       )
     );
+  };
+
+  const removeByIndex = (index: number) => {
+    setCartItems((prevItems) => {
+      const updatedItems = [...prevItems];
+      updatedItems.splice(index, 1); // Remove the item at the specific index
+      return updatedItems;
+    });
   };
 
   return (

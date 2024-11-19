@@ -28,20 +28,16 @@ export default function HomeClient() {
   return (
     <>
       <section className='flex flex-col gap-8'>
-        <Navbar setFilter={setFilter} />
-
         <div className='flex flex-col border-b-[0.5px] pb-4 gap-4'>
           <BigImage />
           <FilterProducts
             onSearch={setSearchQuery}
             onSortChange={setSortOrder}
             productCount={productCount}
-            filter={filter}
           />
         </div>
 
         <ProductList
-          filter={filter}
           searchQuery={searchQuery}
           sortOrder={sortOrder}
           onCountChange={setProductCount}

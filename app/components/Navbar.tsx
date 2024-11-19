@@ -137,7 +137,7 @@ export default function Navbar() {
 
       {/* Larger screen navbar */}
       <nav className='sticky top-0 z-50 hidden sm:flex items-center shadow-[0px_1px_6px_0px_rgba(0,_0,_0,_0.05)] justify-between py-4 bg-white w-screen'>
-        <div className='flex w-full mx-auto items-center px-8 max-w-[1400px] justify-be tween'>
+        <div className='flex w-full mx-auto items-center px-8 max-w-[1400px] justify-between'>
           <div
             className='flex-shrink-0 cursor-pointer'
             onClick={() => handleLinkClick()}

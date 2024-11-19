@@ -38,7 +38,7 @@ export function CartPageClient() {
                 <div className='flex h-full w-full gap-4'>
                   {/* Product Image */}
                   <div
-                    className='relative shrink-0 w-20 h-26 sm:w-24 sm:h-[120px] overflow-hidden rounded-lg'
+                    className='relative shrink-0 w-[80px] h-[100px] sm:w-24 sm:h-[120px]  overflow-hidden rounded-lg'
                     onClick={() => router.push(`/productDetails/${item.title}`)}
                   >
                     <Image
@@ -54,20 +54,22 @@ export function CartPageClient() {
                   <div className='flex flex-col w-full justify-between'>
                     <aside className='flex flex-col'>
                       <h2
-                        className='text-h6 lg:text-h5 w-fit font-medium hover:underline decoration-[1.5px] underline-offset-1 cursor-pointer'
+                        className='text-body sm:text-h6 lg:text-h5 w-fit font-medium hover:underline decoration-[1.5px] underline-offset-1 cursor-pointer'
                         onClick={() =>
                           router.push(`/productDetails/${item.title}`)
                         }
                       >
                         {item.title}
                       </h2>
-                      <p className='text-small font-normal'>
+                      <p className='text-tiny sm:text-small font-normal'>
                         {item.selectedSize}
                       </p>
 
                       {/* Quantity Select Dropdown */}
                       <div className='flex items-center gap-2'>
-                        <p className='text-small font-normal'>Qty</p>
+                        <p className='text-tiny sm:text-small font-normal'>
+                          Qty
+                        </p>
                         <Select
                           value={String(item.quantity)}
                           onValueChange={(value) =>
@@ -79,12 +81,12 @@ export function CartPageClient() {
                             )
                           }
                         >
-                          <SelectTrigger className='w-fit border-none focus:ring-0 h-fit py-0 px-1 gap-1 bg-transparent shadow-none'>
+                          <SelectTrigger className='w-fit border-none text-tiny sm:text-small focus:ring-0 h-fit py-0 px-1 gap-1 bg-transparent shadow-none'>
                             <SelectValue placeholder='Qty' />
                           </SelectTrigger>
                           <SelectContent
                             position='popper'
-                            className='shadow-none text-small'
+                            className='shadow-none text-tiny sm:text-small'
                           >
                             <SelectGroup>
                               <SelectLabel className='text-small font-normal'>
@@ -92,7 +94,7 @@ export function CartPageClient() {
                               </SelectLabel>
                               {[...Array(10)].map((_, index) => (
                                 <SelectItem
-                                  className='cursor-pointer text-small'
+                                  className='cursor-pointer text-tiny sm:text-small'
                                   key={index + 1}
                                   value={String(index + 1)}
                                 >
@@ -105,8 +107,8 @@ export function CartPageClient() {
                       </div>
                     </aside>
                     <div className='flex items-center gap-1'>
-                      <CheckIcon color='rgb(34 197 94)' />
-                      <p className='text-small font-light text-darkGray'>
+                      <CheckIcon color='rgb(34 197 94)' size={18} />
+                      <p className='text-tiny sm:text-small font-light text-darkGray'>
                         in stock
                       </p>
                     </div>
@@ -114,13 +116,13 @@ export function CartPageClient() {
 
                   {/* Price and Remove Button */}
                   <aside className='flex flex-col items-end justify-between'>
-                    <h3 className='text-h6 lg:text-h5 font-medium'>
+                    <h3 className='text-body sm:text-h6 lg:text-h5 font-medium'>
                       ${item.quantity * item.price}.00
                     </h3>
 
                     <Button
                       variant='link'
-                      className='bg-transparent p-0 text-primary shadow-none hover:text-red-500 hover:no-underline'
+                      className='bg-transparent p-0 h-[24px] text-primary shadow-none hover:text-red-500 hover:no-underline'
                       onClick={() =>
                         removeFromCart(
                           item.id,

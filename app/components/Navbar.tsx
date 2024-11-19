@@ -70,8 +70,10 @@ export default function Navbar() {
     } else {
       if (newFilter) {
         router.push(`/?filter=${newFilter}`);
+        setIsOpen(false);
       } else {
         router.push('/');
+        setIsOpen(false);
       }
     }
   };

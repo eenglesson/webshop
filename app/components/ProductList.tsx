@@ -1,22 +1,24 @@
+// components/ProductList.tsx
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import CardProduct from './CardProduct';
 import { products } from '../data/products';
 import { ProductTypes } from '../types';
+import { useFilter } from '../context/FilterContext';
 
 type SortOrder = 'asc' | 'desc' | 'popular';
 
 export default function ProductList({
-  filter,
   searchQuery,
   sortOrder,
   onCountChange,
 }: {
-  filter: 'All' | 'Apparel' | 'Accessories';
   searchQuery: string;
   sortOrder: SortOrder;
   onCountChange: (count: number) => void;
 }) {
+  const { filter } = useFilter();
+
   const filteredProducts = products
     .filter((product) => {
       const matchesCategory =
@@ -36,7 +38,7 @@ export default function ProductList({
       } else return sortOrder === 'asc' ? a.price - b.price : b.price - a.price;
     });
 
-  React.useEffect(() => {
+  useEffect(() => {
     onCountChange(filteredProducts.length);
   }, [filteredProducts.length, onCountChange]);
 

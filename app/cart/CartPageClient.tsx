@@ -26,19 +26,19 @@ export function CartPageClient() {
   );
 
   return (
-    <div className='flex flex-col md:flex-row gap-8'>
-      <aside className='md:w-1/2 max-h-[1000px] overflow-y-auto'>
+    <div className='flex flex-col md:flex-row gap-4 pb-8'>
+      <aside className='md:w-1/2'>
         {cartItems.length > 0 ? (
           <ul className='space-y-4'>
             {cartItems.map((item) => (
               <Card
                 key={`${item.id}-${item.selectedColor}-${item.selectedSize}`}
-                className='flex w-full shadow-none items-center border p-4 rounded-lg'
+                className='flex w-full shadow-none items-center p-4 rounded-xl'
               >
                 <div className='flex h-full w-full gap-4'>
                   {/* Product Image */}
                   <div
-                    className='relative w-32 h-32 overflow-hidden rounded-lg'
+                    className='relative shrink-0 w-20 h-26 sm:w-24 sm:h-[120px] overflow-hidden rounded-lg'
                     onClick={() => router.push(`/productDetails/${item.title}`)}
                   >
                     <Image
@@ -54,20 +54,20 @@ export function CartPageClient() {
                   <div className='flex flex-col w-full justify-between'>
                     <aside className='flex flex-col'>
                       <h2
-                        className='text-h5 w-fit font-medium hover:underline decoration-[1.5px] underline-offset-1 cursor-pointer'
+                        className='text-h6 lg:text-h5 w-fit font-medium hover:underline decoration-[1.5px] underline-offset-1 cursor-pointer'
                         onClick={() =>
                           router.push(`/productDetails/${item.title}`)
                         }
                       >
                         {item.title}
                       </h2>
-                      <p className='text-small text-gray-500'>
+                      <p className='text-small font-normal'>
                         {item.selectedSize}
                       </p>
 
                       {/* Quantity Select Dropdown */}
                       <div className='flex items-center gap-2'>
-                        <p className='text-small'>Qty</p>
+                        <p className='text-small font-normal'>Qty</p>
                         <Select
                           value={String(item.quantity)}
                           onValueChange={(value) =>
@@ -87,7 +87,9 @@ export function CartPageClient() {
                             className='shadow-none text-small'
                           >
                             <SelectGroup>
-                              <SelectLabel>Quantity</SelectLabel>
+                              <SelectLabel className='text-small font-normal'>
+                                Quantity
+                              </SelectLabel>
                               {[...Array(10)].map((_, index) => (
                                 <SelectItem
                                   className='cursor-pointer text-small'
@@ -112,9 +114,9 @@ export function CartPageClient() {
 
                   {/* Price and Remove Button */}
                   <aside className='flex flex-col items-end justify-between'>
-                    <p className='text-h6 font-medium'>
+                    <h3 className='text-h6 lg:text-h5 font-medium'>
                       ${item.quantity * item.price}.00
-                    </p>
+                    </h3>
 
                     <Button
                       variant='link'
@@ -141,29 +143,33 @@ export function CartPageClient() {
 
       {/* Order Summary */}
       {cartItems.length > 0 && (
-        <aside className='w-full md:w-1/2 m-auto'>
-          <Card className='p-6 shadow-none'>
-            <h2 className='text-h5 font-medium mb-4'>Order Summary</h2>
-            <div className='flex flex-col gap-4'>
-              <div className='flex justify-between'>
-                <p className='text-small'>Subtotal</p>
-                <p className='text-small'>${totalPrice}.00</p>
+        <aside className='w-full md:w-1/2'>
+          <div className='sticky top-[82px] '>
+            <Card className='p-4 shadow-none'>
+              <h2 className='text-h6 lg:text-h5 font-medium mb-4'>
+                Order Summary
+              </h2>
+              <div className='flex flex-col gap-4'>
+                <div className='flex justify-between'>
+                  <p className='text-small'>Subtotal</p>
+                  <p className='text-small'>${totalPrice}.00</p>
+                </div>
+                <div className='flex justify-between'>
+                  <p className='text-small'>Shipping</p>
+                  <p className='text-small'>Free</p>
+                </div>
+                <div className='flex justify-between'>
+                  <p className='text-small'>Estimated Tax</p>
+                  <p className='text-small'>$0.00</p>
+                </div>
+                <div className='flex justify-between'>
+                  <p className='text-small font-medium'>Total</p>
+                  <p className='text-small font-medium'>${totalPrice}.00</p>
+                </div>
+                <Button className='w-full h-10'>Proceed to Checkout</Button>
               </div>
-              <div className='flex justify-between'>
-                <p className='text-small'>Shipping</p>
-                <p className='text-small'>Free</p>
-              </div>
-              <div className='flex justify-between'>
-                <p className='text-small'>Estimated Tax</p>
-                <p className='text-small'>$0.00</p>
-              </div>
-              <div className='flex justify-between'>
-                <p className='text-small font-medium'>Total</p>
-                <p className='text-small font-medium'>${totalPrice}.00</p>
-              </div>
-              <Button className='w-full h-10'>Proceed to Checkout</Button>
-            </div>
-          </Card>
+            </Card>
+          </div>
         </aside>
       )}
     </div>

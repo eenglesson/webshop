@@ -1,9 +1,10 @@
+// app/layout.tsx
 'use client';
-
 import './globals.css';
 import React from 'react';
 import { Providers } from './providers';
 import { Toaster } from 'sonner';
+import Navbar from './components/Navbar';
 
 export default function RootLayout({
   children,
@@ -13,10 +14,13 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='max-w-[1400px] mx-auto px-4 sm:px-8'>
-          <Providers>{children}</Providers>
-          <Toaster position='bottom-right' richColors />
-        </div>
+        <Providers>
+          <Navbar />
+          <div className='max-w-[1400px] mt-4 sm:mt-8 mx-auto px-4 sm:px-8'>
+            {children}
+            <Toaster position='bottom-right' richColors />
+          </div>
+        </Providers>
       </body>
     </html>
   );

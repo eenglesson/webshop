@@ -1,9 +1,11 @@
+// components/Navbar.tsx
 'use client';
 import React, { useState, useEffect } from 'react';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { links } from '../types';
+import { links, FilterType } from '../types';
 import ShoppingBagUser from './ShoppingBagUser';
+import { useFilter } from '../context/FilterContext';
 
 const fadeInAnimationVariants = {
   initial: {
@@ -23,18 +25,11 @@ const fadeInAnimationVariants = {
   },
 };
 
-export default function Navbar({
-  setFilter = () => {},
-}: {
-  setFilter?: (filter: 'All' | 'Apparel' | 'Accessories') => void;
-}) {
+export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [activeLink, setActiveLink] = useState<
-    'All' | 'Apparel' | 'Accessories'
-  >('All');
-
+  const { filter, setFilter } = useFilter();
+  const [activeLink, setActiveLink] = useState<FilterType>('All');
   const [isOpen, setIsOpen] = useState(false);
   const [hasClicked, setHasClicked] = useState(false);
 
@@ -54,32 +49,27 @@ export default function Navbar({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Update active link when on the home page or based on URL query
+  // Update active link when filter changes
   useEffect(() => {
-    const filterParam = searchParams.get('filter') as
-      | 'All'
-      | 'Apparel'
-      | 'Accessories';
-    if (pathname === '/') {
-      setActiveLink(filterParam || 'All');
-      setFilter(filterParam || 'All');
-    }
-  }, [pathname, searchParams, setFilter]);
+    setActiveLink(filter);
+  }, [filter]);
 
-  const handleLinkClick = (filter?: 'All' | 'Apparel' | 'Accessories') => {
+  const handleLinkClick = (newFilter?: FilterType) => {
     if (pathname === '/') {
-      if (filter) {
-        router.push(`/?filter=${filter}`); // Navigate to homepage with filter query
-        setActiveLink(filter);
+      if (newFilter) {
+        router.push(`/?filter=${newFilter}`);
+        setActiveLink(newFilter);
+        setFilter(newFilter);
       } else {
-        router.push('/'); // Navigate to homepage without filter
+        router.push('/');
+        setActiveLink('All');
+        setFilter('All');
       }
       setIsOpen(false);
       setHasClicked(true);
     } else {
-      // If coming from a different page, navigate to homepage with filter query
-      if (filter) {
-        router.push(`/?filter=${filter}`);
+      if (newFilter) {
+        router.push(`/?filter=${newFilter}`);
       } else {
         router.push('/');
       }
@@ -89,7 +79,7 @@ export default function Navbar({
   return (
     <>
       {/* Navbar for smaller screens */}
-      <nav className='flex relative sm:hidden items-center justify-between border-b py-4'>
+      <nav className='sticky top-0 z-50 flex sm:hidden w-screen items-center justify-between py-4 px-4 bg-white'>
         <aside
           onClick={toggleHamburger}
           className='flex flex-col gap-1.5 w-[26px] justify-center h-[26px] cursor-pointer z-30'
@@ -115,7 +105,7 @@ export default function Navbar({
         </aside>
         <ShoppingBagUser />
         <ul
-          className={`absolute -left-4 w-screen z-20 flex flex-col pb-[50px] pt-[100px] pl-[48px] gap-6 bg-white rounded-b-3xl shadow-xl transition-all duration-300 ease-in-out ${
+          className={`absolute left-0 w-screen z-20 flex flex-col pb-[50px] pt-[100px] pl-[48px] gap-6 bg-white rounded-b-3xl shadow-xl transition-all duration-300 ease-in-out ${
             isOpen ? 'top-0' : 'top-[-400px]'
           }`}
         >
@@ -143,35 +133,37 @@ export default function Navbar({
         </ul>
       </nav>
 
-      {/* Navbar for larger screens */}
-      <nav className='hidden sm:flex relative items-center justify-between border-b py-4'>
-        {/* Left section with the logo */}
-        <div
-          className='flex-shrink-0 cursor-pointer'
-          onClick={() => handleLinkClick()}
-        >
-          <p className='text-h4 text-slate-900 font-semibold'>Arc&apos;teryx</p>
-        </div>
-
-        {/* Center section with the links */}
-        <div className='absolute left-1/2 transform -translate-x-1/2 flex gap-8'>
-          {links.map((link) => (
-            <p
-              key={link.filter}
-              onClick={() => handleLinkClick(link.filter)}
-              className={`text-body font-normal cursor-pointer ${
-                pathname === '/' && activeLink === link.filter
-                  ? 'text-darkGray'
-                  : 'text-black hover:text-darkGray'
-              }`}
-            >
-              {link.label}
+      {/* Larger screen navbar */}
+      <nav className='sticky top-0 z-50 hidden sm:flex items-center shadow-[0px_1px_6px_0px_rgba(0,_0,_0,_0.05)] justify-between py-4 bg-white w-screen'>
+        <div className='flex w-full mx-auto items-center px-8 max-w-[1400px] justify-between'>
+          <div
+            className='flex-shrink-0 cursor-pointer'
+            onClick={() => handleLinkClick()}
+          >
+            <p className='text-h4 text-slate-900 font-semibold'>
+              Arc&apos;teryx
             </p>
-          ))}
-        </div>
+          </div>
 
-        {/* Right section with the shopping bag icon */}
-        <ShoppingBagUser />
+          {/* Center section with the links */}
+          <div className='flex gap-8'>
+            {links.map((link) => (
+              <p
+                key={link.filter}
+                onClick={() => handleLinkClick(link.filter)}
+                className={`text-body font-normal cursor-pointer ${
+                  activeLink === link.filter
+                    ? 'text-darkGray'
+                    : 'text-black hover:text-darkGray'
+                }`}
+              >
+                {link.label}
+              </p>
+            ))}
+          </div>
+
+          <ShoppingBagUser />
+        </div>
       </nav>
     </>
   );

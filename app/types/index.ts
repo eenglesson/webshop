@@ -23,3 +23,5 @@ export const links: NavLink[] = [
   { label: 'Apparel', filter: 'Apparel' },
   { label: 'Accessories', filter: 'Accessories' },
 ];
+
+export type FilterType = 'All' | 'Apparel' | 'Accessories';

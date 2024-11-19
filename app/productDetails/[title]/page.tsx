@@ -1,7 +1,6 @@
 // app/[title]/page.tsx
 
 import React from 'react';
-import Navbar from '@/app/components/Navbar';
 
 import { ProductTypes } from '@/app/types';
 import { products } from '@/app/data/products';
@@ -24,7 +23,6 @@ export default async function ProductDetailsPage({
   if (!product) {
     return (
       <>
-        <Navbar />
         <div className='flex justify-center items-center h-screen'>
           <p className='text-xl font-medium'>Product not found.</p>
         </div>
@@ -34,7 +32,6 @@ export default async function ProductDetailsPage({
 
   return (
     <>
-      <Navbar />
       <ProductDetailsClient product={product} />
     </>
   );

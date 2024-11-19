@@ -79,7 +79,7 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar for smaller screens */}
-      <nav className='sticky top-0 z-50 flex sm:hidden w-screen items-center justify-between py-4 px-4 bg-white'>
+      <nav className='sticky top-0 z-50 flex sm:hidden w-screen items-center shadow-[0px_1px_6px_0px_rgba(0,_0,_0,_0.05)] justify-between py-4 px-4 bg-white'>
         <aside
           onClick={toggleHamburger}
           className='flex flex-col gap-1.5 w-[26px] justify-center h-[26px] cursor-pointer z-30'
@@ -135,7 +135,7 @@ export default function Navbar() {
 
       {/* Larger screen navbar */}
       <nav className='sticky top-0 z-50 hidden sm:flex items-center shadow-[0px_1px_6px_0px_rgba(0,_0,_0,_0.05)] justify-between py-4 bg-white w-screen'>
-        <div className='flex w-full mx-auto items-center px-8 max-w-[1400px] justify-between'>
+        <div className='flex w-full mx-auto items-center px-8 max-w-[1400px] justify-be tween'>
           <div
             className='flex-shrink-0 cursor-pointer'
             onClick={() => handleLinkClick()}

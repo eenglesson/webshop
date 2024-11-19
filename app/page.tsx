@@ -16,12 +16,14 @@ export default function Home() {
     <>
       <section className='flex flex-col gap-8'>
         <div className='flex flex-col border-b-[0.5px] pb-4 gap-4'>
-          <BigImage />
-          <FilterProducts
-            onSearch={setSearchQuery}
-            onSortChange={setSortOrder}
-            productCount={productCount}
-          />
+          <Suspense fallback={<p>Loading big image...</p>}>
+            <BigImage />
+            <FilterProducts
+              onSearch={setSearchQuery}
+              onSortChange={setSortOrder}
+              productCount={productCount}
+            />
+          </Suspense>
         </div>
 
         <Suspense fallback={<p>Loading products...</p>}>

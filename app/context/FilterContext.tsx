@@ -1,8 +1,6 @@
-// context/FilterContext.tsx
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
 
 type FilterType = 'All' | 'Apparel' | 'Accessories';
 
@@ -15,16 +13,15 @@ const FilterContext = createContext<FilterContextType | undefined>(undefined);
 
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const [filter, setFilter] = useState<FilterType>('All');
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
 
-  // Sync filter state with URL query parameters
+  // UseEffect to sync with query parameters (client-safe)
   useEffect(() => {
-    const filterParam = searchParams.get('filter') as FilterType;
-    if (pathname === '/') {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const filterParam = params.get('filter') as FilterType;
       setFilter(filterParam || 'All');
     }
-  }, [pathname, searchParams]);
+  }, []);
 
   return (
     <FilterContext.Provider value={{ filter, setFilter }}>

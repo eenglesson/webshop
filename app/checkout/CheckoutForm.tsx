@@ -5,9 +5,11 @@ import React, { useState } from 'react';
 import { FaApple, FaPaypal } from 'react-icons/fa';
 import { Card } from '@/components/ui/card';
 import { useCart } from '../context/CartContext';
+import { useRouter } from 'next/navigation';
 
 export default function CheckoutForm() {
-  const { cartItems } = useCart();
+  const router = useRouter();
+  const { cartItems, clearCart } = useCart();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -38,19 +40,41 @@ export default function CheckoutForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Checkout data submitted:', formData);
+    // Clear the cart
+    clearCart();
+
+    // Navigate to the OrderConfirmation page
+    router.push('/orderConfirmation');
     // Add logic to handle form submission, such as calling an API.
+  };
+
+  const handleCheckout = () => {
+    // Save order details to sessionStorage or a state management solution
+    sessionStorage.setItem('orderDetails', JSON.stringify(cartItems));
+
+    // Clear the cart
+    clearCart();
+
+    // Navigate to the OrderConfirmation page
+    router.push('/orderConfirmation');
   };
 
   return (
     <Card className='flex flex-col w-full gap-8 shadow-none p-4'>
       <aside className='flex flex-col gap-4'>
-        <Button className='bg-black gap-0.5 hover:bg-black/90 rounded-lg flex w-full justify-center items-center'>
+        <Button
+          onClick={handleCheckout}
+          className='bg-black gap-0.5 hover:bg-black/90 rounded-lg flex w-full justify-center items-center'
+        >
           <div className='mb-0.5'>
             <FaApple size={16} />
           </div>
           Pay
         </Button>
-        <Button className='rounded-lg flex w-full justify-center items-center text-white py-1 gap-0.5'>
+        <Button
+          onClick={handleCheckout}
+          className='rounded-lg flex w-full justify-center items-center text-white py-1 gap-0.5'
+        >
           <div>
             <FaPaypal size={16} />
           </div>

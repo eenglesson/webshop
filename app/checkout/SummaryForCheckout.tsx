@@ -15,6 +15,7 @@ export default function SummaryForCheckout() {
   const router = useRouter();
 
   const handleToggleSummary = () => {
+    if (cartItems.length === 0) return;
     setShowSummary((prev) => !prev);
   };
 

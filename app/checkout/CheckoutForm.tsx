@@ -6,6 +6,7 @@ import { FaApple, FaPaypal } from 'react-icons/fa';
 import { Card } from '@/components/ui/card';
 import { useCart } from '../context/CartContext';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 export default function CheckoutForm() {
   const router = useRouter();
@@ -39,6 +40,10 @@ export default function CheckoutForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (cartItems.length === 0) {
+      toast.error('Please add items to your cart before checking out.');
+      return;
+    }
     console.log('Checkout data submitted:', formData);
     // Clear the cart
     clearCart();
@@ -49,10 +54,13 @@ export default function CheckoutForm() {
   };
 
   const handleCheckout = () => {
+    if (cartItems.length === 0) {
+      toast.error('Please add items to your cart before checking out.');
+      return;
+    }
     // Save order details to sessionStorage or a state management solution
     sessionStorage.setItem('orderDetails', JSON.stringify(cartItems));
 
-    // Clear the cart
     clearCart();
 
     // Navigate to the OrderConfirmation page

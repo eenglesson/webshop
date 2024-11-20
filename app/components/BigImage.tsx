@@ -6,7 +6,7 @@ export default function BigImage() {
     <>
       <div className='w-full h-[300px] overflow-hidden relative rounded-xl'>
         <Image
-          src='/climbingski.avif'
+          src='/ski.jpg'
           alt='skiImage'
           fill
           style={{ objectFit: 'cover' }}

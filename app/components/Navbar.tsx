@@ -55,26 +55,20 @@ export default function Navbar() {
   }, [filter]);
 
   const handleLinkClick = (newFilter?: FilterType) => {
-    if (pathname === '/') {
-      if (newFilter) {
-        router.push(`/?filter=${newFilter}`);
-        setActiveLink(newFilter);
-        setFilter(newFilter);
-      } else {
-        router.push('/');
-        setActiveLink('All');
-        setFilter('All');
-      }
-      setIsOpen(false);
-      setHasClicked(true);
+    // Close the hamburger menu if open
+    setIsOpen(false);
+
+    // Update the filter state and URL
+    if (newFilter) {
+      setActiveLink(newFilter);
+      setFilter(newFilter);
+
+      // Push the updated filter to the URL
+      router.push(`/?filter=${newFilter}`);
     } else {
-      if (newFilter) {
-        router.push(`/?filter=${newFilter}`);
-        setIsOpen(false);
-      } else {
-        router.push('/');
-        setIsOpen(false);
-      }
+      setActiveLink('All');
+      setFilter('All');
+      router.push('/');
     }
   };
 

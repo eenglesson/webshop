@@ -1,7 +1,4 @@
-'use client';
-
 import React from 'react';
-
 import { Mail, Phone } from 'lucide-react';
 
 type Link = {
@@ -33,8 +30,8 @@ export default function Footer() {
           </div>
 
           <p className='shrink-0 text-bodyMedium sm:text-bodyDefault max-w-[600px]'>
-            Arc'teryx is a high-performance outdoor equipment company known for
-            leading innovations in climbing, skiing, and alpine technologies
+            Arc&apos;teryx is a high-performance outdoor equipment company known
+            for leading innovations in climbing, skiing, and alpine technologies
           </p>
           <div className='flex flex-col gap-2'>
             <a

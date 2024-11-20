@@ -21,7 +21,7 @@ export default function Footer() {
 
   return (
     <footer className='shadow-[0px_-1px_6px_0px_rgba(0,_0,_0,_0.05)] mt-32 flex justify-center'>
-      <div className='flex flex-col w-full gap-12 py-12 px-4 sm:px-8 border-b md:flex-row border-grey30 max-w-[1400px]'>
+      <div className='flex flex-col w-full gap-12 py-12 px-4 sm:px-8 md:flex-row border-grey30 max-w-[1400px]'>
         <aside className='flex flex-col gap-4 w-full '>
           <div>
             <p className='text-h4 text-slate-900 font-semibold'>

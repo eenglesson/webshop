@@ -5,7 +5,7 @@ import SummaryForCheckout from './SummaryForCheckout';
 export default function Page() {
   return (
     <>
-      <h1 className='text-2xl font-semibold pb-8'>Checkout</h1>
+      <h1 className='text-h4 sm:text-h3 mt-8 font-semibold mb-4'>Checkout</h1>
       <section className='flex flex-col md:flex-row gap-4'>
         {/* Sticky Checkout Form */}
         <div className='block md:hidden'>

@@ -26,9 +26,10 @@ export default function ProductDetailsClient({
 
   return (
     <section className='md:flex md:flex-row h-full w-full flex-col pt-8'>
-      <div className='flex items-center justify-center md:w-1/2 h-full w-full '>
+      <div className='flex flex-col items-center justify-center md:w-1/2 h-full w-full'>
+        {/* Main Image */}
         <div
-          className='relative w-full max-w-[700px]'
+          className='relative w-full max-w-[700px] overflow-hidden'
           style={{ paddingBottom: '120%' }}
         >
           <Image
@@ -36,9 +37,28 @@ export default function ProductDetailsClient({
             alt={product.title}
             sizes='(max-width: 700px) 100vw, 700px'
             fill
-            className='object-cover object-top'
+            className='object-cover object-top hover:scale-102 transition-transform duration-300'
           />
         </div>
+
+        {/* Thumbnails Section */}
+        <aside className='flex flex-row gap-2 mt-2 w-full justify-center'>
+          {[product.image, product.image, product.image].map((img, index) => (
+            <div
+              key={index}
+              className='relative flex-1 overflow-hidden cursor-pointer '
+              style={{ paddingBottom: '30%' }}
+            >
+              <Image
+                src={img}
+                alt={`${product.title} thumbnail ${index + 1}`}
+                sizes='(max-width: 700px) 33vw, 700px'
+                fill
+                className='object-cover object-center hover:scale-105 transition-transform duration-300'
+              />
+            </div>
+          ))}
+        </aside>
       </div>
 
       <div className='md:w-1/2 h-full w-full flex mt-4 md:mt-0 flex-col gap-6 lg:gap-10 md:pl-4'>

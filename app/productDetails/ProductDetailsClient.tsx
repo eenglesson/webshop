@@ -25,7 +25,7 @@ export default function ProductDetailsClient({
   const [selectedSize, setSelectedSize] = useState('');
 
   return (
-    <section className='md:flex md:flex-row h-full w-full flex-col pt-8 pb-32'>
+    <section className='md:flex md:flex-row h-full w-full flex-col pt-8'>
       <div className='flex items-center justify-center md:w-1/2 h-full w-full '>
         <div
           className='relative w-full max-w-[700px]'

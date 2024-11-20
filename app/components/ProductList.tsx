@@ -43,7 +43,7 @@ export default function ProductList({
   }, [filteredProducts.length, onCountChange]);
 
   return (
-    <section className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 pb-12'>
+    <section className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4'>
       {filteredProducts.map((product: ProductTypes) => (
         <CardProduct key={product.id} product={product} />
       ))}

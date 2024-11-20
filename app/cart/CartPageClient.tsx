@@ -26,7 +26,7 @@ export function CartPageClient() {
   );
 
   return (
-    <div className='flex flex-col md:flex-row gap-4 pb-8'>
+    <div className='flex flex-col md:flex-row gap-4'>
       <aside className='md:w-1/2'>
         {cartItems.length > 0 ? (
           <ul className='space-y-4'>
@@ -168,7 +168,9 @@ export function CartPageClient() {
                   <p className='text-small font-medium'>Total</p>
                   <p className='text-small font-medium'>${totalPrice}.00</p>
                 </div>
-                <Button className='w-full h-10'>Proceed to Checkout</Button>
+                <Button onClick={() => router.push(`/checkout`)} size='lg'>
+                  Proceed to Checkout
+                </Button>
               </div>
             </Card>
           </div>

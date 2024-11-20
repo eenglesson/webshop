@@ -5,6 +5,7 @@ import React, { Suspense } from 'react';
 import { Providers } from './providers';
 import { Toaster } from 'sonner';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 export default function RootLayout({
   children,
@@ -22,6 +23,7 @@ export default function RootLayout({
             {children}
             <Toaster position='bottom-right' richColors closeButton />
           </div>
+          <Footer />
         </Providers>
       </body>
     </html>

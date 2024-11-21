@@ -19,9 +19,9 @@ export default function ShoppingBagUser() {
       <User className='cursor-pointer' />
       <aside className='relative group'>
         <Link href='/cart'>
-          <ShoppingBag className='cursor-pointer' />
+          <ShoppingBag className='cursor-pointer hover:text-darkGray transition-transform duration-150' />
           {totalItems > 0 && (
-            <span className='absolute top-4 group-hover:bg-black -right-2 bg-red-500 text-white text-[12px] font-medium rounded-md w-[18px] h-[18px] flex items-center justify-center'>
+            <span className='absolute top-4 -right-2 bg-red-500 text-white text-[12px] font-medium rounded-md w-[18px] h-[18px] flex items-center justify-center'>
               {totalItems}
             </span>
           )}

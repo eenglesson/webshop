@@ -26,7 +26,7 @@ export default function ColorPicker({
             }}
             className={`relative h-6 w-6 lg:h-8 lg:w-8 rounded-full cursor-pointer ${color} ${
               selectedColor === color
-                ? `ring-[1.5px] ring-offset-2 ring-blue-500`
+                ? `ring-[1.5px] ring-offset-2 ring-black`
                 : ''
             }`}
             style={{ outlineOffset: '-1px' }}

@@ -67,7 +67,7 @@ export default function FilterProducts({
 
   return (
     <section className='flex gap-6 items-center relative justify-between'>
-      <div className='flex gap-2 h-full items-center'>
+      <div className='flex gap-4 h-full items-center'>
         <div ref={filterRef} className='flex items-center gap-4'>
           <ListFilter
             size={28}
@@ -110,7 +110,14 @@ export default function FilterProducts({
             </p>
           </Card>
         )}
-
+        <div className='flex justify-center w-48 items-center h-[30px]'>
+          <Input
+            className='shadow-none w-full h-full border-black placeholder:text-small text-small'
+            type='search'
+            placeholder='Search for a product...'
+            onChange={handleSearchChange}
+          />
+        </div>
         <aside className='flex h-fit items-end gap-1'>
           <p className='text-[18px] sm:text-[24px] leading-[0.9]'>
             {productCount}
@@ -119,14 +126,6 @@ export default function FilterProducts({
             {filterDisplayNames[filter]}
           </p>
         </aside>
-      </div>
-      <div className='flex justify-center w-48 items-center h-[30px]'>
-        <Input
-          className='shadow-none w-full h-full placeholder:text-small text-small'
-          type='search'
-          placeholder='Search for a product...'
-          onChange={handleSearchChange}
-        />
       </div>
     </section>
   );

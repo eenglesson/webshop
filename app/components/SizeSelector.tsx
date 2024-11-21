@@ -37,9 +37,9 @@ export default function SizeSelector({
             key={size}
             className={`text-sm sm:text-md font-normal ${
               selectedSize === size
-                ? 'bg-primary text-white border-primary'
+                ? 'bg-slate-800 text-white border-black'
                 : 'bg-white text-black border-gray-300'
-            } border shadow-none hover:border-primary hover:bg-primary hover:text-white rounded-md p-2 sm:p-4 transition duration-300`}
+            } border shadow-none hover:border-slate-800 hover:bg-slate-800 hover:text-white rounded-md p-2 sm:p-4 transition duration-300`}
             aria-selected={selectedSize === size}
             onClick={() => handleSizeClick(size)}
           >
